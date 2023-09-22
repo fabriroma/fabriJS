@@ -12,21 +12,21 @@ function compraVirtual () {
     let opcion = 0;
 
     while (opcion !== 1 && opcion !== 2) {
-        opcion = parseInt(prompt("Elija una opción:\n1-Comprar dólares\n2-Comprar criptomonedas"));
+        opcion = parseInt(prompt("Elija una opción:\n1-Comprar con tarjeta\n2-Comprar con efectivo"));
     }
 
     if (opcion === 1) {
-        comprarDolares();
+        comprarTarjeta();
     } else if (opcion === 2) {
-        comprarCripto();
+        comprarEfectivo();
     }
 }
 
-function comprarDolares() {
+function comprarTarjeta() {
     let opcion2 = 0;
 
     while (opcion2 !== 1 && opcion2 !== 2) {
-        opcion2 = parseInt(prompt("Eligió comprar dólares. ¿Cuánto le gustaría comprar? :\n1- +100\n2- -100"));
+        opcion2 = parseInt(prompt("Eligió comprar con tarjeta. ¿Debito o credito? :\n1- Debito\n2- Credito"));
     }
 
     if (opcion2 === 1) {
@@ -36,8 +36,8 @@ function comprarDolares() {
     }
 }
 
-function comprarCripto() {
-    let opcion1 = prompt("Eligió comprar criptomoneda. ¿Está seguro/a de la operacion? (si/no)").toLowerCase();
+function comprarEfectivo() {
+    let opcion1 = prompt("Eligió comprar con efectivo. ¿Está seguro/a de la operacion? (si/no)").toLowerCase();
 
     if (opcion1 === "si") {
         alert("Eligió sí, ingrese cuánto desea comprar");

@@ -1,0 +1,179 @@
+header {
+    background-color: #534848;
+  }
+  header .logo-header {
+    animation: jello-diagonal-2 0.8s both;
+  }
+  header .navbar-brand,
+  header .navbar-nav {
+    margin-left: auto;
+  }
+  header .navbar-brand ul,
+  header .navbar-nav ul {
+    font-size: 1.3rem;
+  }
+  @keyframes jello-diagonal-2 {
+    0% {
+      transform: skew(0deg 0deg);
+    }
+    30% {
+      transform: skew(-25deg -25deg);
+    }
+    40% {
+      transform: skew(15deg, 15deg);
+    }
+    50% {
+      transform: skew(-15deg, -15deg);
+    }
+    65% {
+      transform: skew(5deg, 5deg);
+    }
+    75% {
+      transform: skew(-5deg, -5deg);
+    }
+    100% {
+      transform: skew(0deg 0deg);
+    }
+  }
+  
+  .imagen-principal {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("../img/imagenprincipal.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%; }
+    .imagen-principal h5 {
+        position: relative;
+        text-align: center;
+        font-size: 5rem;
+        color: rgb(49, 15, 15);
+        font-family: 'Ysabeau', sans-serif;
+      margin-top: 50vh;
+        -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+                animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    }
+  
+   @-webkit-keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  main {
+    background-color: #282b2b;
+    color: rgb(0, 0, 0);
+    width: 100%;
+  }
+  main .todoslosproductos {
+    padding: 1vh;
+    text-align: center;
+    color: white;
+  }
+  
+  body {
+    background-color: #282b2b;
+  }
+  
+  .galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    margin: 20px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .galeria .items-galeria {
+    animation: scale-in-hor-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    text-align: center;
+  }
+  .galeria .items-galeria img {
+    width: 100%;
+    height: 100vh;
+    border-radius: 1rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .galeria .items-galeria .product-info {
+    padding: 5px;
+    background-color: black;
+    border-radius: 1rem;
+    margin-top: -1rem;
+    position: relative;
+  }
+  .galeria .items-galeria .product-info .product-name {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: white;
+  }
+  .galeria .items-galeria .product-info .product-price {
+    font-size: 1.2rem;
+    color: #888;
+  }
+  
+  .btn {
+    border: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 0.25rem;
+    border-radius: 1rem;
+    background-color: rgb(255, 255, 255);
+    font-family: "Ysabeau", sans-serif;
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(255, 255, 255);
+  }
+  .btn:hover {
+    background-color: #ffffff;
+    color: white;
+  }
+  @keyframes scale-in-hor-center {
+    0% {
+      transform: scaleX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+  footer {
+    display: grid;
+    height: 5vh;
+    background-color: #282b2b;
+  }
+  footer .textofooter {
+    display: grid;
+    font-family: "Ysabeau", sans-serif;
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 1rem;
+    color: rgb(192, 179, 179);
+    background-color: #282b2b;
+  }
