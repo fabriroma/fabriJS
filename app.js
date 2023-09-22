@@ -1,66 +1,70 @@
+// Función para saludar al usuario
 function saludar() {
     let iniciar = "";
 
     while (iniciar.toLowerCase() !== "ok") {
-        iniciar = prompt("Ingrese 'ok' para comenzar:").toLowerCase();
+        iniciar = prompt("¡Bienvenido a nuestra tienda de ropa en línea! Ingrese 'ok' para comenzar:").toLowerCase();
     }
 }
 
-saludar();
+// Función para mostrar la tienda y permitir al usuario seleccionar productos
+function comprarRopa() {
+    let carrito = []; // Array para almacenar los productos seleccionados
+    let continuarComprando = "si";
 
-function compraVirtual () {
-    let opcion = 0;
+    while (continuarComprando === "si") {
+        let producto = prompt("Seleccione un producto:\n1- Camisa\n2- Pantalón\n3- Zapatos\n4- Chaqueta");
 
-    while (opcion !== 1 && opcion !== 2) {
-        opcion = parseInt(prompt("Elija una opción:\n1-Comprar con tarjeta\n2-Comprar con efectivo"));
+        switch (producto) {
+            case "1":
+                carrito.push({ nombre: "Camisa", precio: 20 });
+                break;
+            case "2":
+                carrito.push({ nombre: "Pantalón", precio: 30 });
+                break;
+            case "3":
+                carrito.push({ nombre: "Zapatos", precio: 50 });
+                break;
+            case "4":
+                carrito.push({ nombre: "Chaqueta", precio: 40 });
+                break;
+            default:
+                alert("Opción no válida. Por favor, seleccione un producto válido.");
+        }
+
+        continuarComprando = prompt("¿Desea agregar más productos al carrito? (si/no)").toLowerCase();
     }
 
-    if (opcion === 1) {
-        comprarTarjeta();
-    } else if (opcion === 2) {
-        comprarEfectivo();
+    return carrito;
+}
+
+// Función para calcular el total de la compra
+function calcularTotal(carrito) {
+    let total = 0;
+
+    for (let i = 0; i < carrito.length; i++) {
+        total += carrito[i].precio;
+    }
+
+    return total;
+}
+
+// Función principal
+function tiendaDeRopa() {
+    saludar();
+    let carrito = comprarRopa();
+
+    if (carrito.length === 0) {
+        alert("No ha seleccionado ningún producto. Gracias por visitarnos.");
+    } else {
+        alert("Productos seleccionados: ");
+        for (let i = 0; i < carrito.length; i++) {
+            alert(`${carrito[i].nombre} - Precio: $${carrito[i].precio}`);
+        }
+
+        let total = calcularTotal(carrito);
+        alert(`El monto total de su compra es de $${total}. ¡Gracias por comprar en nuestra tienda de ropa en línea!`);
     }
 }
 
-function comprarTarjeta() {
-    let opcion2 = 0;
-
-    while (opcion2 !== 1 && opcion2 !== 2) {
-        opcion2 = parseInt(prompt("Eligió comprar con tarjeta. ¿Debito o credito? :\n1- Debito\n2- Credito"));
-    }
-
-    if (opcion2 === 1) {
-        alert("Ingrese el monto");
-    } else if (opcion2 === 2) {
-        alert("Ingrese el monto");
-    }
-}
-
-function comprarEfectivo() {
-    let opcion1 = prompt("Eligió comprar con efectivo. ¿Está seguro/a de la operacion? (si/no)").toLowerCase();
-
-    if (opcion1 === "si") {
-        alert("Eligió sí, ingrese cuánto desea comprar");
-    } else if (opcion1 === "no") {
-        alert("volver a ingresar");
-    }
-}
-
-let nombreCliente = prompt("Por favor, escriba su nombre");
-alert("Bienvenido/a " + nombreCliente);
-
-
-compraVirtual();
-
-let valor;
-let total= 0;
-let continuar= "si";
-
-while (continuar == "si"){
-    valor = +prompt ("Por favor, ingrese el monto:");
-    valor = +prompt ("Por favor, confirme el monto:");
-    total = total + valor;
-    continuar = prompt ("Desea continuar comprando? si/no");
-}
-
-alert ('El monto total es de $' + total);
+tiendaDeRopa();
