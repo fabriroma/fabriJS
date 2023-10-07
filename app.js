@@ -1,4 +1,4 @@
-// Función para saludar al usuario
+
 function saludar() {
     let iniciar = "";
 
@@ -7,9 +7,8 @@ function saludar() {
     }
 }
 
-// Función para mostrar la tienda y permitir al usuario seleccionar productos
 function comprarRopa() {
-    let carrito = []; // Array para almacenar los productos seleccionados
+    let carrito = [];
     let continuarComprando = "si";
 
     while (continuarComprando === "si") {
@@ -38,7 +37,7 @@ function comprarRopa() {
     return carrito;
 }
 
-// Función para calcular el total de la compra
+
 function calcularTotal(carrito) {
     let total = 0;
 
@@ -49,7 +48,7 @@ function calcularTotal(carrito) {
     return total;
 }
 
-// Función principal
+
 function tiendaDeRopa() {
     saludar();
     let carrito = comprarRopa();
@@ -65,22 +64,16 @@ function tiendaDeRopa() {
         let total = calcularTotal(carrito);
         alert(`El monto total de su compra es de $${total}. ¡Gracias por comprar en nuestra tienda de ropa en línea!`);
     }
+
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
+
 
 tiendaDeRopa();
 
-var imagenPrincipal = document.querySelector(".imagen-principal");
-var productosDestacados = document.querySelector(".todoslosproductos");
-var galeria = document.querySelector(".galeria");
 
-imagenPrincipal.innerHTML += "<p>Bienvenido a Aurora Ind.</p>";
+const carritoGuardado = localStorage.getItem("carrito");
+const carrito = carritoGuardado ? JSON.parse(carritoGuardado) : [];
 
-productosDestacados.textContent = "Nuestros Productos Destacados";
 
-var nuevaImagen1 = document.createElement("img");
-nuevaImagen1.src = "imagen1.jpg";
-galeria.appendChild(nuevaImagen1);
-
-var nuevaImagen2 = document.createElement("img");
-nuevaImagen2.src = "imagen2.jpg";
-galeria.appendChild(nuevaImagen2);
