@@ -37,7 +37,6 @@ function comprarRopa() {
     return carrito;
 }
 
-
 function calcularTotal(carrito) {
     let total = 0;
 
@@ -48,6 +47,17 @@ function calcularTotal(carrito) {
     return total;
 }
 
+function actualizarContadorCarrito() {
+    const carritoGuardado = localStorage.getItem("carrito");
+    const carrito = carritoGuardado ? JSON.parse(carritoGuardado) : [];
+    contadorCarrito.textContent = carrito.length;
+}
+
+function limpiarCarrito() {
+    localStorage.removeItem("carrito");
+    actualizarContadorCarrito();
+    mensajeElement.textContent = "El carrito ha sido limpiado.";
+}
 
 function tiendaDeRopa() {
     saludar();
@@ -65,15 +75,20 @@ function tiendaDeRopa() {
         alert(`El monto total de su compra es de $${total}. ¡Gracias por comprar en nuestra tienda de ropa en línea!`);
     }
 
-
     localStorage.setItem("carrito", JSON.stringify(carrito));
-}
 
+    const contadorCarrito = document.getElementById("contador-carrito");
+    const limpiarCarritoBtn = document.getElementById("limpiar-carrito");
+    const mensajeElement = document.getElementById("mensaje");
+
+
+    limpiarCarritoBtn.addEventListener("click", limpiarCarrito);
+
+
+    actualizarContadorCarrito();
+}
 
 tiendaDeRopa();
 
-
-const carritoGuardado = localStorage.getItem("carrito");
-const carrito = carritoGuardado ? JSON.parse(carritoGuardado) : [];
 
 
