@@ -68,3 +68,19 @@ function tiendaDeRopa() {
 }
 
 tiendaDeRopa();
+
+var imagenPrincipal = document.querySelector(".imagen-principal");
+var productosDestacados = document.querySelector(".todoslosproductos");
+var galeria = document.querySelector(".galeria");
+
+imagenPrincipal.innerHTML += "<p>Bienvenido a Aurora Ind.</p>";
+
+productosDestacados.textContent = "Nuestros Productos Destacados";
+
+var nuevaImagen1 = document.createElement("img");
+nuevaImagen1.src = "imagen1.jpg";
+galeria.appendChild(nuevaImagen1);
+
+var nuevaImagen2 = document.createElement("img");
+nuevaImagen2.src = "imagen2.jpg";
+galeria.appendChild(nuevaImagen2);
